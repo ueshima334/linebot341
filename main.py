@@ -24,17 +24,20 @@ line_bot_api = LineBotApi(LINE_BOT_API)
 handler = WebhookHandler(CHANNEL_SECRET)
 my_user_id = MY_USER_ID
 
-word_data = pd.read_csv("word.csv").values.tolist()
-target_word = random.choice(word_data)
+def main():
+    word_data = pd.read_csv("word.csv").values.tolist()
+    target_word = random.choice(word_data)
 
+    messages = TextSendMessage(text=target_word[0])
+    line_bot_api.push_message(my_user_id, messages=messages)
 
-messages = TextSendMessage(text=target_word[0])
-line_bot_api.push_message(my_user_id, messages=messages)
+    messages = TextSendMessage(text=target_word[1])
+    line_bot_api.push_message(my_user_id, messages=messages)
 
 @app.route('/')
 def hello():
-  name = "hello world"
-  return name
+    name = "Hello World"
+    return name
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -54,12 +57,5 @@ def callback():
 
     return 'OK'
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message1(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=target_word[1]))
-    sys.exit()
-
 if __name__ == "__main__":
-    app.run()
+    main()
