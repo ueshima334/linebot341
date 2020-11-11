@@ -24,6 +24,7 @@ line_bot_api = LineBotApi(LINE_BOT_API)
 handler = WebhookHandler(CHANNEL_SECRET)
 my_user_id = MY_USER_ID
 
+main()
 def main():
     word_data = pd.read_csv("word.csv").values.tolist()
     target_word = random.choice(word_data)
@@ -58,4 +59,5 @@ def callback():
     return 'OK'
 
 if __name__ == "__main__":
-    main()
+    port = int(os.getenv("PORT"))
+    app.run(host="0.0.0.0", port=port)
