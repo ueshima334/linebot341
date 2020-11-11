@@ -17,6 +17,9 @@ import os
 
 app = Flask(__name__)
 
+LINE_BOT_API = os.environ["LINE_BOT_API"]
+CHANNEL_SECRET = os.environ["CHANNEL_SECRET"]
+MY_USER_ID = os.environ["MY_USER_ID"]
 line_bot_api = LineBotApi(LINE_BOT_API)
 handler = WebhookHandler(CHANNEL_SECRET)
 my_user_id = MY_USER_ID
