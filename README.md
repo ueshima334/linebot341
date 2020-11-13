@@ -19,6 +19,6 @@ LINEは毎朝確認するものですので、そこに自動的に送信され�
 
 # DEMO
 
-！[毎朝9時に英単語が送信されてくる](https://i.gyazo.com/ef1c90b027c95a9dc85a86c33be47706.png)
+![毎朝9時に英単語が送信されてくる](https://i.gyazo.com/ef1c90b027c95a9dc85a86c33be47706.png)
 
 ![「おかわり」or「お」と送信すると、別の英単語を受診できる。](https://i.gyazo.com/882dd669c29c620d9478824f49b573f3.png)
